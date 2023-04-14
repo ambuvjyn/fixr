@@ -44,8 +44,16 @@ Here is a list of functions provided by fixr:
 
 For detailed usage instructions for each function, please refer to the package documentation.
 
-### Authors
-##### Ambu Vijayan (aut, cre)
-##### J. Sreekumar (aut)
+### Authors :
+
+**Ambu Vijayan** _Young Professional, ICAR - Central Tuber Crops Research Institute_
+
+**Dr. J. Sreekumar** _Principal Scientist, ICAR - Central Tuber Crops Research Institute_
+
+[![LinkedIn](https://img.shields.io/badge/Ambu_Vijayan-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/ambuvijayan/) [![LinkedIn](https://img.shields.io/badge/Sreekumar_J-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://in.linkedin.com/in/sreekumar-j-8280776)
+
+Maintainer :
+**Ambu Vijayan**
+
 ### License
 This project is licensed under the GPL-3 License - see the LICENSE.md file for details.
