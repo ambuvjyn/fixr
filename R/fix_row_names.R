@@ -1,35 +1,30 @@
-#' Fix Data Frame Row Names
+#' Fix row names of a data frame
 #'
-#' This function adds "X_" before the names of any rows in a data frame
-#' that start with a number, and removes any leading or trailing spaces in the row
-#' names. This is useful to avoid errors that can occur when
-#' working with row names in some R functions.
+#' This function removes any leading "X." or "X" from the row names of a data frame, replaces any "." with "_", removes any leading or trailing symbols and spaces, and ensures that there is only one underscore between two words. Additionally, if there are duplicate row names, the function appends a number to each duplicate row name to make it unique.
 #'
-#' @param df A data frame
-#' @return A modified data frame with updated row names
+#' @param data a data frame with improperly formatted row names
+#'
+#' @return a modified data frame with fixed row names
+#'
+#' @importFrom stats ave
+#'
 #' @examples
-#' df <- data.frame(" 1st column " = 1:5, "2nd column" = 6:10, " third column " = 11:15)
-#' row.names(df) <- c(" 1st row ", "2nd row", " third row ")
-#' fix_row_names(df)
-#'
-#' # Output:
-#' # X_1st_column X_2nd_column third_column
-#' # X_1st_row 1 6 11
-#' # 2nd_row 2 7 12
-#' # X_third_row 3 8 13
-#' # 4 4 9 14
-#' # 5 5 10 15
+#' my_data <- data.frame(" Col1" = c(1, 2, 3), "Col.2" = c(4, 5, 6), check.names = FALSE)
+#' rownames(my_data) <- c(" Row1", " Row.2", "Row.3 ")
+#' fix_row_names(my_data)
 #'
 #' @export
-fix_row_names <- function(df) {
-#Add "X_" before row names that start with a number, and remove leading/trailing spaces
-  new_rownames <- rownames(df)
-  for (i in seq_along(new_rownames)) {
-    new_rownames[i] <- trimws(new_rownames[i])
-    if (grepl("^\\d", new_rownames[i])) {
-      new_rownames[i] <- paste0("X_", new_rownames[i])
-    }
+fix_row_names <- function(data){
+  # remove "X." or "X" from the beginning of row names
+  rownames(data) <- gsub("^X[.]?\\s*", "", rownames(data))
+  # replace "." with "_" and remove leading/trailing symbols and spaces
+  rownames(data) <- gsub("[^[:alnum:]_]+", "_", rownames(data))
+  rownames(data) <- gsub("^_+|_+$", "", rownames(data))
+  rownames(data) <- gsub("_{2,}", "_", rownames(data))
+  # add number to duplicated row names
+  if(any(duplicated(rownames(data)))) {
+    nums <- ave(seq_along(rownames(data)), rownames(data), FUN=seq_along)
+    rownames(data) <- paste0(rownames(data), "_", nums)
   }
-  rownames(df) <- new_rownames
-  return(df)
+  return(data)
 }

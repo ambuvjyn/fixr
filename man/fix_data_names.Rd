@@ -2,32 +2,22 @@
 % Please edit documentation in R/fix_data_names.R
 \name{fix_data_names}
 \alias{fix_data_names}
-\title{Fix Data Frame Column and Row Names}
+\title{Fix row and column names of a data frame}
 \usage{
 fix_data_names(df)
 }
 \arguments{
-\item{df}{A data frame}
+\item{df}{A data frame to be fixed}
 }
 \value{
-A modified data frame with updated column and row names
+A fixed data frame with modified row and column names
 }
 \description{
-This function adds "X_" before the names of any columns or rows in a data frame
-that start with a number, and removes any leading or trailing spaces in the column
-and row names. This is useful to avoid errors that can occur when
-working with column or row names in some R functions.
+This function fixes the row and column names of a data frame by removing leading and trailing spaces, replacing spaces with underscores, and modifying duplicate names.
 }
 \examples{
-df <- data.frame(" 1st column " = 1:5, "2nd column" = 6:10, " third column " = 11:15)
-fix_data_names(df)
-
-# Output:
-#   X_1st_column X_2nd_column third_column
-# 1            1             6           11
-# 2            2             7           12
-# 3            3             8           13
-# 4            4             9           14
-# 5            5            10           15
+my_data <- data.frame(" Col1" = c(1, 2, 3), "Col.2" = c(4, 5, 6), check.names = FALSE)
+rownames(my_data) <- c(" Row1", " Row.2", "Row.3 ")
+fix_column_names(fix_row_names(my_data))
 
 }

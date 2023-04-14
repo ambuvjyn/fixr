@@ -19,7 +19,7 @@ pairs of numeric columns in a data frame by computing the correlation between
 each pair and reporting if it is less than 0.8.
 }
 \examples{
-df <- data.frame(x = c(1, 2, 3), y = c(4, 5, 6), z = c(7, 8, 9))
+df <- data.frame(x = c("a", "b", "c"), y = c(4, 5, 6), z = c(7, 8, 180))
 check_data_reliability(df)
 
 }

@@ -8,7 +8,8 @@
 #' @param df A data frame
 #' @return A message indicating which columns are duplicates of which other columns
 #' @examples
-#' df <- data.frame(a = c(1, 2, 3), b = c(4, 5, 6), c = c(1, 2, 3), d = c(7, 8, 9))
+#' df <- data.frame(w = c(7, 8, 180, 7), x = c("a", "b", "c", "a"),
+#'                  y = c(4, NA, -6, 4), z = c(7, 8, 180, 7))
 #' find_duplicate_cols(df)
 #' # Column 'c' is a duplicate of column 'a'
 #' @export

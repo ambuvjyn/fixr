@@ -16,7 +16,8 @@ A message indicating if the sample size is adequate or too small
 This function checks if the sample size of a data frame is adequate for statistical analysis.
 }
 \examples{
-df <- data.frame(x = rnorm(50), y = rnorm(50))
+df <- data.frame(w = c(7, 8, 180, 7), x = c("a", "b", "c", "a"),
+                 y = c(4, 5, -6, 4), z = c(7, 8, 18, 7))
 check_sample_size(df)
 
 }

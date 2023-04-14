@@ -9,7 +9,13 @@
 #' @return None
 #'
 #' @examples
-#' check_data_structure(my_data)
+#' df <- data.frame(id = 1:10,
+#' gender = c("male", "female", "male", "male", "male", "male", "male", "male", "female", "female"),
+#' age = c(25, 32, 45, 19, 27, 56, 38, 42, 33, NA),
+#' salary = c(50000, 60000, 75000, 45000, 55000, 90000, NA, 80000, 65000, 70000))
+#'
+#' # Check the data structure of the example dataframe
+#' check_data_structure(df)
 #'
 #' @export
 check_data_structure <- function(df) {
@@ -19,8 +25,12 @@ check_data_structure <- function(df) {
   column_data_types <- sapply(df, class)
   missing_values <- sum(is.na(df))
   message(paste0("Number of rows: ", n_rows))
+  cat("\n")  # add an empty line
   message(paste0("Number of columns: ", n_cols))
+  cat("\n")  # add an empty line
   message(paste0("Column names: ", paste(column_names, collapse=", ")))
+  cat("\n")  # add an empty line
   message(paste0("Column data types: ", paste(column_data_types, collapse=", ")))
+  cat("\n")  # add an empty line
   message(paste0("Number of missing values: ", missing_values))
 }

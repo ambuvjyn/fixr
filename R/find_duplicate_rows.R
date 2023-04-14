@@ -6,16 +6,15 @@
 #' @return A message stating whether or not duplicate rows were found, and if so, the row numbers of the duplicate and original rows.
 #' @examples
 #' # Create example data frame
-#' df <- data.frame(x = c(1, 2, 3, 4, 5), y = c("a", "b", "c", "d", "e"), z = c(TRUE, FALSE, TRUE, FALSE, TRUE))
-#' # Add duplicate rows
-#' df <- rbind(df, df[1:2,])
-#' df <- rbind(df, df[3:4,])
+#' df <- data.frame(w = c(7, 8, 180, 7), x = c("a", "b", "c", "a"),
+#'                  y = c(4, 5, -6, 4), z = c(7, 8, NA, 7))
 #' # Find duplicate rows
 #' find_duplicate_rows(df)
+#'
 #' @export
 find_duplicate_rows <- function(df) {
-  # Remove rows with no values in all cells
-  df <- df[rowSums(is.na(df)) != ncol(df), ]
+  # Replace NA with 0
+  df[is.na(df)] <- 0
 
   # Initialize empty vectors to store duplicate and original row numbers
   duplicate_rows <- c()

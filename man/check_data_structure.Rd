@@ -17,6 +17,12 @@ This function checks the structure of the given data frame and prints the number
 number of columns, column names, column data types, and number of missing values.
 }
 \examples{
-check_data_structure(my_data)
+df <- data.frame(id = 1:10,
+gender = c("male", "female", "male", "male", "male", "male", "male", "male", "female", "female"),
+age = c(25, 32, 45, 19, 27, 56, 38, 42, 33, NA),
+salary = c(50000, 60000, 75000, 45000, 55000, 90000, NA, 80000, 65000, 70000))
+
+# Check the data structure of the example dataframe
+check_data_structure(df)
 
 }

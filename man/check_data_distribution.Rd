@@ -16,6 +16,8 @@ This function does not return anything, it only prints messages to the console.
 This function checks if the data is normally distributed for each numeric column in a data frame.
 }
 \examples{
-check_data_distribution(mtcars)
+df <- data.frame(x = c("a", "b", "c"), y = c(4, 5, 6), z = c(7, 8, 9))
+
+check_data_distribution(df)
 
 }

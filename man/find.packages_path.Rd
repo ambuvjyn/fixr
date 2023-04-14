@@ -17,9 +17,9 @@ This function takes a file path as input and searches the CRAN repository for R 
 }
 \examples{
 # Search for packages that can import a CSV file
-find.packages_path("path/to/myfile.csv")
+find.packages_path("sample.csv")
 
 # Search for packages that can import a JSON file
-find.packages_path("path/to/myfile.json")
+find.packages_path("sample.json")
 
 }

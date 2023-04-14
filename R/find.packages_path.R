@@ -8,13 +8,14 @@
 #'
 #' @importFrom RCurl url.exists
 #' @importFrom httr GET content
+#' @import xml2
 #'
 #' @examples
 #' # Search for packages that can import a CSV file
-#' find.packages_path("path/to/myfile.csv")
+#' find.packages_path("sample.csv")
 #'
 #' # Search for packages that can import a JSON file
-#' find.packages_path("path/to/myfile.json")
+#' find.packages_path("sample.json")
 #'
 #' @export
 find.packages_path <- function(file_path) {

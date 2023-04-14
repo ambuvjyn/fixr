@@ -7,14 +7,15 @@
 #' @return The cleaned data frame.
 #'
 #' @examples
-#' df <- data.frame(" 1st col " = c("", "foo", ""), "2nd col" = c(" ", " ", "bar"), "3rd col" = c(1, 2, 3))
+#' df <- data.frame(" 1st col " = c("", "foo", ""), "2nd col" = c(" ", " ", "bar"),
+#'                  "3rd col" = c(1, 2, 3))
 #' fix.data(df)
 #'
 #' @export
 fix.data <- function(df) {
+  df <- fix_special_characters_in_names(df)
   df <- fix_data_names(df)
-  df <- remove_spaces(df)
-  df <- remove_symbols_data(df)
-  df <- replace_blanks_with_na(df)
+  df <- fix_special_characters_in_data(df)
+  df <- fix_blanks_with_na(df)
   return(df)
 }

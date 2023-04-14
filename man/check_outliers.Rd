@@ -16,6 +16,9 @@ A message indicating whether or not extreme values were found.
 This function checks for outliers or extreme values in a given dataframe.
 }
 \examples{
-check_outliers(mtcars)
+df <- data.frame(w = c(7, 8, 180, 7), x = c("a", "b", "c", "a"),
+                 y = c(4, 5, -6, 4), z = c(7, 8, NA, 7))
+
+check_outliers(df)
 
 }

@@ -17,10 +17,9 @@ This function identifies and reports duplicate rows in a given data frame. It fi
 }
 \examples{
 # Create example data frame
-df <- data.frame(x = c(1, 2, 3, 4, 5), y = c("a", "b", "c", "d", "e"), z = c(TRUE, FALSE, TRUE, FALSE, TRUE))
-# Add duplicate rows
-df <- rbind(df, df[1:2,])
-df <- rbind(df, df[3:4,])
+df <- data.frame(w = c(7, 8, 180, 7), x = c("a", "b", "c", "a"),
+                 y = c(4, 5, -6, 4), z = c(7, 8, NA, 7))
 # Find duplicate rows
 find_duplicate_rows(df)
+
 }

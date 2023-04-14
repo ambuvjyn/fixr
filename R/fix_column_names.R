@@ -1,34 +1,29 @@
-#' Fix Data Frame Column Names
+#' Fix Column Names
 #'
-#' This function adds "X_" before the names of any columns in a data frame
-#' that start with a number, and removes any leading or trailing spaces in the column
-#' names. This is useful to avoid errors that can occur when
-#' working with column names in some R functions.
+#' This function removes "X." or "X" from the beginning of column names and replaces any "." with "_". It also removes leading/trailing symbols and spaces, and ensures that there is only one underscore between two words. If there are duplicate column names, it appends a number to each duplicate column name to make it unique.
 #'
-#' @param df A data frame
-#' @return A modified data frame with updated column names
+#' @param data A data frame with improperly formatted column names.
+#'
+#' @return The modified data frame with fixed column names.
+#'
+#' @importFrom stats ave
+#'
 #' @examples
-#' df <- data.frame(" 1st column " = 1:5, "2nd column" = 6:10, " third column " = 11:15)
-#' fix_col_names(df)
-#'
-#' # Output:
-#' # X_1st_column X_2nd_column third_column
-#' # 1 1 6 11
-#' # 2 2 7 12
-#' # 3 3 8 13
-#' # 4 4 9 14
-#' # 5 5 10 15
+#' my_data <- data.frame(" Col1" = c(1, 2, 3), "Col.2" = c(4, 5, 6), check.names = FALSE)
+#' fix_column_names(my_data)
 #'
 #' @export
-fix_col_names <- function(df) {
-#Add "X_" before column names that start with a number, and remove leading/trailing spaces
-  new_colnames <- names(df)
-  for (i in seq_along(new_colnames)) {
-    new_colnames[i] <- trimws(new_colnames[i])
-    if (grepl("^\\d", new_colnames[i])) {
-      new_colnames[i] <- paste0("X_", new_colnames[i])
-    }
+fix_column_names <- function(data){
+  # remove "X." or "X" from the beginning of column names
+  colnames(data) <- gsub("^X[.]?\\s*", "", colnames(data))
+  # replace "." with "_" and remove leading/trailing symbols and spaces
+  colnames(data) <- gsub("[^[:alnum:]_]+", "_", colnames(data))
+  colnames(data) <- gsub("^_+|_+$", "", colnames(data))
+  colnames(data) <- gsub("_{2,}", "_", colnames(data))
+  # add number to duplicated column names
+  if(any(duplicated(colnames(data)))) {
+    nums <- ave(seq_along(colnames(data)), colnames(data), FUN=seq_along)
+    colnames(data) <- paste0(colnames(data), "_", nums)
   }
-  names(df) <- new_colnames
-  return(df)
+  return(data)
 }
