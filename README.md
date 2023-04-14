@@ -211,4 +211,4 @@ Maintainer :
 **Ambu Vijayan**
 
 ### License
-This project is licensed under the GPL-3 License - see the LICENSE.md file for details.
+This project is licensed under the GPL-3 License - see the [LICENSE.md](https://github.com/ambuvjyn/fixr/blob/main/LICENSE) file for details.
