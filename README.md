@@ -1,4 +1,4 @@
-[![version](https://img.shields.io/badge/baseq-0.1.4-green?style=for-the-badge&logo=github)](https://cran.r-project.org/package=baseq) ![GitHub](https://img.shields.io/github/license/ambuvjyn/fixr?style=for-the-badge) [![version](https://img.shields.io/badge/fixr-0.1.0-blue?style=for-the-badge&logo=github)](https://github.com/ambuvjyn/fixr) [![language](https://img.shields.io/badge/R-100%25-006400?style=for-the-badge)]() [![Commands](https://img.shields.io/badge/Commands-27-red?style=for-the-badge)]()
+[![version](https://img.shields.io/badge/baseq-0.1.4-green?style=for-the-badge&logo=github)](https://cran.r-project.org/package=baseq) ![license](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge) [![version](https://img.shields.io/badge/fixr-0.1.0-blue?style=for-the-badge&logo=github)](https://github.com/ambuvjyn/fixr) [![language](https://img.shields.io/badge/R-100%25-006400?style=for-the-badge)]() [![Commands](https://img.shields.io/badge/Commands-27-red?style=for-the-badge)]()
 
 # fixr
 ### Fixing Data Made Easy for Statistical Analysis
